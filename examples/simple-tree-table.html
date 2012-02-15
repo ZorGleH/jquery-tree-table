@@ -1,0 +1,89 @@
+<!doctype html> 
+<html lang="en"> 
+<head>
+  <title>jQuery Tree Table example</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../jquery.treeTable.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("table.tree").treeTable();
+      // $("#tree").treeTable();
+    });
+  </script>
+  <style>
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    td {
+      border: 1px solid #999;
+    }
+    .expanded td:first-child:before, .collapsed td:first-child:before {
+      display: inline-block;
+      border: 1px solid #999;
+      width: 14px;
+      text-align: center;
+      margin-right: 5px;
+    }
+    .expanded td:first-child:before {
+      content: "-";
+    }
+    .collapsed td:first-child:before {
+      content: "+";
+    }
+    tr[data-level="1"] td:first-child {
+      padding-left: 20px;
+    }
+    tr[data-level="2"] td:first-child {
+      padding-left: 40px;
+    }
+  </style>
+</head>
+<body>
+  <table class="tree">
+    <tr data-level="0">
+      <td>Level 0 without children</td>
+      <td>Something</td>
+    </tr>
+    <tr data-level="0">
+      <td>Level 0 with 1 child</td>
+      <td>Something</td>
+    </tr>
+    <tr data-level="1">
+      <td>Level 1 without children</td>
+      <td>Something</td>
+    </tr>
+    <tr data-level="0">
+      <td>Level 0 with children</td>
+      <td>Something</td>
+    </tr>
+    <tr data-level="1">
+      <td>Level 1 without children</td>
+      <td>Something</td>
+    </tr>
+    <tr data-level="1">
+      <td>Level 1 with 1 child</td>
+      <td>Something</td>
+    </tr>
+    <tr data-level="2">
+      <td>Level 2 without children</td>
+      <td>Something</td>
+    </tr>
+    <tr data-level="1">
+      <td>Level 1 with children</td>
+      <td>Something</td>
+    </tr>
+    <tr data-level="2">
+      <td>Level 2 without children</td>
+      <td>Something</td>
+    </tr>
+    <tr data-level="2">
+      <td>Level 2 without children</td>
+      <td>Something</td>
+    </tr>
+    <tr data-level="2">
+      <td>Level 2 without children</td>
+      <td>Something</td>
+    </tr>
+  </table>
+</body>
