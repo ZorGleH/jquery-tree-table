@@ -1,12 +1,14 @@
-<!doctype html> 
-<html lang="en"> 
+<!doctype html>
+<html lang="en">
 <head>
   <title>jQuery Tree Table example</title>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script type="text/javascript" src="../jquery.treeTable.js"></script>
+  <script type="text/javascript" src="../jquery.treeTable.min.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
-      $("table.tree").treeTable();
+      $("table.tree").treeTable({
+        ignoreClickOn: "input, a, img"
+      });
     });
   </script>
   <style>
@@ -53,7 +55,7 @@
       <td>Another column</td>
     </tr>
     <tr data-level="0">
-      <td><input type="checkbox"/>Level 0 with children</td>
+      <td><input type="checkbox"/>Level 0 with children <img src="" alt="|Click here!|" title="Click on this image will do nothing if treeTable is called with ignoreClickOn:img"/></td>
       <td>Another column</td>
     </tr>
     <tr data-level="1">

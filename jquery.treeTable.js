@@ -20,7 +20,8 @@
 
   $.fn.treeTable.defaults = {
     dataAttribute: "level",
-    collapsedByDefault: true
+    collapsedByDefault: true,
+    ignoreClickOn: "input, a"
   };
 
   // Recursively hide all node's children in a tree
@@ -47,8 +48,8 @@
 
   // Check if node has children
   $.fn.hasChildren = function() {
-    return (childrenOf($(this)).length > 0)
-  }
+    return (childrenOf($(this)).length > 0);
+  };
 
   // Toggle an entire branch
   $.fn.toggle = function() {
@@ -62,15 +63,15 @@
   // === Private functions
 
   function initialize(node) {
-    if(node.hasChildren()) {
+    if (node.hasChildren()) {
       node.click(function(event) {
         var $target = $(event.target);
-        if(!$target.is("input, a") ) {
+        if (!$target.is(options.ignoreClickOn)) {
           node.toggle();
           return false;
         }
       });
-      if(options.collapsedByDefault)
+      if (options.collapsedByDefault)
         node.collapse();
       else
         node.expand();
@@ -84,6 +85,6 @@
   function childrenOf(node) {
     nodeLevel = getLevel(node);
     childrenLevel = nodeLevel + 1;
-    return $(node).nextUntil("tr[data-" + options.dataAttribute + "="+ nodeLevel +"]", "tr[data-" + options.dataAttribute + "="+ childrenLevel +"]");
+    return $(node).nextUntil("tr[data-" + options.dataAttribute + "=" + nodeLevel + "]", "tr[data-" + options.dataAttribute + "=" + childrenLevel + "]");
   };
 })(jQuery);
