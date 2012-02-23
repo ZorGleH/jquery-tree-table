@@ -39,12 +39,14 @@ Then initialize it with something like that:
 Options
 -------
 
-There are only two options:
+There are 3 options:
 
+`ignoreClickOn`: list of selectors you want to be ignored by click (defaults to `"input, a"`)  
 `dataAttribute`: data attribute suffix for the row level (defaults to `"level"`)  
 `collapsedByDefault`: initial collapsed state of the tree (defaults to `true`)  
 
     $("table.tree").treeTable({
+      ignoreClickOn: "img"
       dataAttribute: "level",
       collapsedByDefault: true
     });
